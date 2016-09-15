@@ -13,7 +13,7 @@ Usage:
     >>> from __future__ import print_function
     >>> from markdown import markdown
     >>> text = 'I <3 you! Just kidding. :P'
-    >>> print(markdown(text, ['unimoji']))    # doctest: +NORMALIZE_WHITESPACE
+    >>> print(markdown(text, ['mdx_unimoji']))    # doctest: +NORMALIZE_WHITESPACE
     <p>I <span class="emoji" style="color:red">❤</span> you! \
     Just kidding. <span class="emoji">😛</span></p>
 

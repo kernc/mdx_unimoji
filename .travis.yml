@@ -1,0 +1,16 @@
+language: python
+python:
+  - "2.7"
+  - "3.3"
+  - "3.4"
+  - "3.5"
+install:
+  - pip install -q Markdown
+script:
+  - PYTHONPATH=. python tests/without_mdx_unimoji_extension.py
+  - PYTHONPATH=. python tests/with_mdx_unimoji_extension.py
+  - PYTHONPATH=. python tests/with_emoji_overrides_option.py
+  - PYTHONPATH=. python tests/with_styles_overrides_option.py
+  - PYTHONPATH=. python tests/with_span_class_option.py
+  - PYTHONPATH=. python tests/with_span_class_option_none.py
+  - PYTHONPATH=. python tests/with_both_options.py

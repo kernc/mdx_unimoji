@@ -5,7 +5,11 @@ import doctest
 
 MODULE = 'mdx_unimoji'
 
-tests = lambda: doctest.DocTestSuite(MODULE)
+
+def tests():
+    doctest.DocTestSuite(MODULE)
+
+
 
 setup(
     name=MODULE,

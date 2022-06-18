@@ -1,7 +1,8 @@
 #!/usr/bin/env python
+import doctest
+from pathlib import Path
 
 from setuptools import setup
-import doctest
 
 MODULE = 'mdx_unimoji'
 
@@ -10,6 +11,8 @@ def tests():
     doctest.DocTestSuite(MODULE)
 
 
+with open(Path(__file__).parent / 'README.md') as readme_file:
+    readme = '\n' + readme_file.read()
 
 setup(
     name=MODULE,
@@ -17,12 +20,12 @@ setup(
     author='Jack Nicholson',
     author_email='kern.ce.ce++@gmail.com',
     description='Python-Markdown extension that replaces common smileys with their Unicode emoji emoticons. ;)',
-    long_description_markdown_filename='README.md',
+    long_description=readme,
+    long_description_content_type='text/markdown',
     url='https://github.com/kernc/' + MODULE,
     py_modules=[MODULE],
     test_suite='setup.tests',
     install_requires=['Markdown'],
-    setup_requires=['setuptools-markdown'],
     license='GPLv3+',
     keywords='markdown unicode emoji emoticon',
     classifiers=[

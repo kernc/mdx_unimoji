@@ -8,12 +8,13 @@ variety of devices [1].
 
 Usage:
 
-    >>> from __future__ import print_function
-    >>> from markdown import markdown
-    >>> text = 'I <3 you! Just kidding. :P'
-    >>> print(markdown(text, ['mdx_unimoji']))    # doctest: +NORMALIZE_WHITESPACE
-    <p>I <span class="emoji" style="color:red">❤</span> you! \
-    Just kidding. <span class="emoji">😛</span></p>
+```python
+>>> from __future__ import print_function
+>>> from markdown import markdown
+>>> text = 'I <3 you! :P'
+>>> print(markdown(text, ['mdx_unimoji']))    # doctest: +NORMALIZE_WHITESPACE
+<p>I <span class="emoji" style="color:red">❤</span> you! <span class="emoji">😛</span></p>
+```
 
 **NOTE**: The emojis are only replaced when whitespace-delimited on both sides!
 
@@ -25,18 +26,20 @@ The following options are accepted:
 
 An example with these custom settings:
 
-    >>> from mdx_unimoji import UnimojiExtension
-    >>> img_heart = '<img alt="love" src="heart.png"/>'
-    >>> img_tongue = '<img alt=":P" src="tongue.png"/>'
-    >>> overrides = UnimojiExtension.EMOJI
-    >>> overrides.update({img_heart: ['<3'],
-    ...                   img_tongue: ':p :P :-p :-P'.split()})
-    >>> print(markdown(text,
-    ...                extensions=[UnimojiExtension(span_class='other',
-    ...                                             emoji=overrides)]))
-    ... # doctest: +NORMALIZE_WHITESPACE
-    <p>I <img alt="love" class="other" src="heart.png" /> you! \
-    Just kidding. <img alt=":P" class="other" src="tongue.png" /></p>
+```python
+>>> from mdx_unimoji import UnimojiExtension
+>>> img_heart = '<img alt="love" src="heart.png"/>'
+>>> img_tongue = '<img alt=":P" src="tongue.png"/>'
+>>> overrides = UnimojiExtension.EMOJI
+>>> overrides.update({img_heart: ['<3'],
+...                   img_tongue: ':p :P :-p :-P'.split()})
+>>> print(markdown(text,
+...                extensions=[UnimojiExtension(span_class='other',
+...                                             emoji=overrides)]))
+... # doctest: +NORMALIZE_WHITESPACE
+<p>I <img alt="love" class="other" src="heart.png" /> you! \
+<img alt=":P" class="other" src="tongue.png" /></p>
+```
 
 You can use the `span_class` value in your CSS, e.g.:
 

@@ -16,7 +16,7 @@ with open(Path(__file__).parent / 'README.md') as readme_file:
 
 setup(
     name=MODULE,
-    version='1.0',
+    version='1.1',
     author='Jack Nicholson',
     author_email='kern.ce.ce++@gmail.com',
     description='Python-Markdown extension that replaces common smileys with their Unicode emoji emoticons. ;)',

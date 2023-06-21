@@ -52,7 +52,7 @@ HF!
 """
 from __future__ import unicode_literals
 from markdown import Extension
-from markdown.util import etree
+import xml.etree.ElementTree as etree
 from markdown.inlinepatterns import Pattern
 
 class UnimojiExtension(Extension):

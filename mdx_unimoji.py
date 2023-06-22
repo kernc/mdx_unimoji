@@ -127,7 +127,7 @@ class UnimojiExtension(Extension):
     def extendMarkdown(self, md):
         import re
         RE = r'((?<=\s)|(?<=^))(?P<emoticon>%s)(?=\s|$)' % '|'.join(map(re.escape, self.getConfig('aliases')))
-        md.inlinePatterns['emoji'] = UnimojiPattern(RE, md, self)
+        md.inlinePatterns.register(UnimojiPattern(RE, md, self), 'emoji', 200)
 
 
 class UnimojiPattern(Pattern):
